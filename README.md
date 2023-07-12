@@ -38,7 +38,7 @@ Example:
 
 ```vue
 <template>
-  <select v-model="_in">
+  <select v-model="searchIn">
     <option value="title">title</option>
     <option value="author">author</option>
     <option value="category">category</option>
