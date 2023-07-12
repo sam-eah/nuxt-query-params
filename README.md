@@ -18,7 +18,39 @@ Basic usage:
   <input type="text" v-model="q" />
 </template>
 
-<script setup >
+<script setup>
 const q = useQueryParams('q');
 </script>
+```
+
+## Default value
+
+By default, query params will not be shown in url when it's value is empty string.
+
+```
+/         <=> q.value = ''
+/?q=test  <=> q.value = 'test'
+```
+
+It is possible to change this default value through the options.
+
+Example:
+
+```vue
+<template>
+  <select v-model="_in">
+    <option value="title">title</option>
+    <option value="author">author</option>
+    <option value="category">category</option>
+  </select>
+</template>
+
+<script setup>
+const searchIn = useQueryParams('in', { defaultValue: 'title' });
+</script>
+```
+
+```
+/          <=> searchIn.value = 'title'
+/?in=test  <=> searchIn.value = 'test'
 ```
