@@ -54,3 +54,22 @@ const searchIn = useQueryParams('in', { defaultValue: 'title' });
 /          <=> searchIn.value = 'title'
 /?in=test  <=> searchIn.value = 'test'
 ```
+
+## Boolean query params
+
+Example:
+
+```vue
+<template>
+  <input type="checkbox" v-model="status" />
+</template>
+
+<script setup>
+const status = useBoolQueryParams('status');
+</script>
+```
+
+```
+/              <=> searchIn.value = false
+/?status=true  <=> searchIn.value = true
+```

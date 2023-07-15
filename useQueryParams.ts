@@ -26,3 +26,21 @@ export function useQueryParams(name: string, options?: UseQueryParamsOptions) {
 
   return qp;
 }
+
+export function useBoolQueryParams(name: string) {
+  const route = useRoute();
+  const qp = ref<boolean>(!!route.query[name]);
+
+  watch([qp], () => {
+    const query = {
+      ...route.query,
+      [name]: qp.value ? 'true' : undefined,
+    };
+    navigateTo({
+      path: route.path,
+      query,
+    });
+  });
+
+  return qp;
+}
