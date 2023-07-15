@@ -73,3 +73,27 @@ const status = useBoolQueryParams('status');
 /              <=> searchIn.value = false
 /?status=true  <=> searchIn.value = true
 ```
+
+## Array query params
+
+Example:
+
+```vue
+<template>
+  <select v-model="searchIn" multiple>
+    <option value="title">title</option>
+    <option value="author">author</option>
+    <option value="category">category</option>
+  </select>
+</template>
+
+<script setup>
+const searchIn = useQueryParams('in');
+</script>
+```
+
+```
+/                     <=> searchIn.value = []
+/?in=title            <=> searchIn.value = ['title']
+/?in=title&in=author  <=> searchIn.value = ['title', 'author']
+```
